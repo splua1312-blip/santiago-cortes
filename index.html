@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- 1. CONFIGURACIÓN BÁSICA -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santiago Cortes | Páginas web y contenido para negocios en Puebla</title>
+  <meta name="description" content="Páginas web sencillas, diseño de publicaciones y herramientas en Excel para negocios locales de Puebla.">
+
+  <!-- 2. TIPOGRAFÍA para el texto (los títulos usan Georgia, que ya viene en todos los equipos) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- 3. ESTILOS -->
+  <style>
+    /* Colores de tu marca */
+    :root {
+      --azul: #142848;
+      --azul-2: #223e68;
+      --dorado: #c9a227;
+      --crema: #f6f3ec;
+      --crema-2: #ebe5d8;
+      --texto: #1c2434;
+      --gris: #6e7684;
+      --blanco: #ffffff;
+      --whatsapp: #1fa855;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Inter", Arial, sans-serif; color: var(--texto); background: var(--crema); line-height: 1.6; }
+    a { color: inherit; }
+    .contenedor { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+    h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; }
+
+    /* Navegación */
+    header { position: sticky; top: 0; z-index: 10; background: var(--azul); }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--blanco); font-weight: 600; }
+    .monograma { width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--dorado); color: var(--dorado);
+                 display: flex; align-items: center; justify-content: center; font-family: Georgia, serif; font-weight: 700; font-size: 15px; }
+    .nav ul { display: flex; gap: 22px; list-style: none; }
+    .nav ul a { text-decoration: none; color: #c8d2e2; font-size: 15px; }
+    .nav ul a:hover { color: var(--dorado); }
+
+    /* Portada */
+    .portada { background: var(--azul); color: var(--blanco); padding: 70px 0 90px; }
+    .etiqueta { color: var(--dorado); font-weight: 700; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+    .portada h1 { font-size: clamp(34px, 6.5vw, 58px); line-height: 1.12; margin: 14px 0 18px; max-width: 760px; }
+    .portada p { color: #c8d2e2; font-size: 18px; max-width: 600px; }
+    .linea { width: 90px; height: 4px; background: var(--dorado); margin: 26px 0; border-radius: 2px; }
+    .botones { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+    .boton { display: inline-block; padding: 14px 26px; border-radius: 999px; font-weight: 600; text-decoration: none; font-size: 16px; }
+    .boton-dorado { background: var(--dorado); color: var(--azul); }
+    .boton-borde { border: 2px solid #c8d2e2; color: var(--blanco); }
+    .boton-whatsapp { background: var(--whatsapp); color: var(--blanco); }
+
+    /* Secciones */
+    section { padding: 72px 0; }
+    h2 { font-size: clamp(28px, 5vw, 40px); color: var(--azul); margin-bottom: 10px; }
+    .subtitulo { color: var(--gris); margin-bottom: 36px; max-width: 640px; }
+    .rejilla { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .tarjeta { background: var(--blanco); border-radius: 16px; padding: 28px; box-shadow: 0 4px 18px rgba(20, 40, 72, .07); }
+    .tarjeta h3 { color: var(--azul); font-size: 22px; margin: 14px 0 8px; }
+    .icono { width: 48px; height: 48px; border-radius: 12px; background: var(--crema); display: flex; align-items: center; justify-content: center; font-size: 24px; }
+    .tarjeta p { color: var(--gris); }
+
+    /* Ejemplo */
+    .fondo-azul { background: var(--azul); color: var(--blanco); }
+    .fondo-azul h2 { color: var(--blanco); }
+    .fondo-azul .subtitulo { color: #c8d2e2; }
+    .ejemplo { display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; align-items: center; }
+    .maqueta { background: var(--azul-2); border-radius: 18px; padding: 18px; }
+    .pantalla { background: #3b2416; border-radius: 12px; padding: 28px 22px; color: #f7f1e8; }
+    .pantalla small { color: #c8873a; font-weight: 700; letter-spacing: .1em; font-size: 11px; }
+    .pantalla strong { display: block; font-family: Georgia, serif; font-size: 26px; line-height: 1.2; margin: 8px 0 12px; }
+    .pantalla span { display: inline-block; background: #c8873a; color: #fff; border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 600; }
+
+    /* Planes */
+    .plan { position: relative; }
+    .plan.destacado { background: var(--azul); color: var(--blanco); }
+    .plan.destacado h3 { color: var(--blanco); }
+    .plan.destacado p, .plan.destacado li { color: #c8d2e2; }
+    .insignia { display: inline-block; background: var(--dorado); color: var(--azul); font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 999px; letter-spacing: .04em; }
+    .precio { font-family: Georgia, serif; font-size: 46px; font-weight: 700; color: var(--dorado); line-height: 1; margin: 14px 0 4px; }
+    .precio small { font-family: "Inter", Arial, sans-serif; font-size: 15px; font-weight: 500; color: var(--gris); }
+    .plan.destacado .precio small { color: #c8d2e2; }
+    .tachado { text-decoration: line-through; color: var(--gris); font-size: 14px; }
+    .plan ul { list-style: none; margin-top: 18px; }
+    .plan li { padding: 7px 0 7px 28px; position: relative; color: var(--texto); }
+    .plan li::before { content: "✓"; position: absolute; left: 0; color: var(--dorado); font-weight: 700; }
+    .extras { margin-top: 24px; color: var(--gris); font-size: 15px; }
+
+    /* Recursos gratis */
+    .recurso { display: flex; flex-direction: column; justify-content: space-between; gap: 18px; }
+    .enlace { color: var(--azul); font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--dorado); align-self: flex-start; }
+
+    /* Sobre mí */
+    .sobre { display: grid; grid-template-columns: 180px 1fr; gap: 34px; align-items: center; }
+    .foto { width: 180px; height: 180px; border-radius: 50%; background: var(--azul); border: 6px solid var(--dorado);
+            display: flex; align-items: center; justify-content: center; color: var(--dorado); font-family: Georgia, serif; font-size: 64px; font-weight: 700; }
+
+    /* Contacto */
+    .contacto { text-align: center; }
+    .contacto .botones { justify-content: center; }
+    footer { background: #0d1c33; color: #8e9ab0; text-align: center; padding: 24px 20px; font-size: 14px; }
+
+    /* Botón flotante de WhatsApp */
+    .flotante { position: fixed; right: 18px; bottom: 18px; width: 58px; height: 58px; border-radius: 50%; background: var(--whatsapp);
+                display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 18px rgba(0, 0, 0, .25); z-index: 20; }
+    .flotante svg { width: 30px; height: 30px; fill: var(--blanco); }
+
+    /* 4. AJUSTES PARA CELULAR */
+    @media (max-width: 760px) {
+      .nav ul { display: none; }
+      .ejemplo, .sobre { grid-template-columns: 1fr; }
+      .foto { width: 130px; height: 130px; font-size: 46px; }
+      section { padding: 56px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <header>
+    <div class="contenedor nav">
+      <a class="marca" href="#inicio"><span class="monograma">SC</span> Santiago Cortes</a>
+      <ul>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#planes">Planes</a></li>
+        <li><a href="#recursos">Recursos gratis</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- PORTADA -->
+  <section class="portada" id="inicio">
+    <div class="contenedor">
+      <span class="etiqueta">Puebla · Negocios locales</span>
+      <h1>Ayudo a negocios de Puebla a que más clientes los encuentren</h1>
+      <p>Páginas web sencillas, diseño de publicaciones para redes y herramientas en Excel, a precios accesibles para negocios que van empezando.</p>
+      <div class="linea"></div>
+      <div class="botones">
+        <a class="boton boton-dorado" href="#planes">Ver planes</a>
+        <a class="boton boton-borde" href="#ejemplo">Ver un ejemplo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="contenedor">
+      <h2>¿En qué te puedo ayudar?</h2>
+      <p class="subtitulo">Servicios pensados para negocios pequeños: claros, rápidos y sin complicaciones.</p>
+      <div class="rejilla">
+        <div class="tarjeta">
+          <div class="icono">💻</div>
+          <h3>Página web para tu negocio</h3>
+          <p>Tu menú o servicios, horario, ubicación con mapa y botón de WhatsApp, en una página que se ve bien en el celular.</p>
+        </div>
+        <div class="tarjeta">
+          <div class="icono">📱</div>
+          <h3>Diseño de publicaciones</h3>
+          <p>Carruseles, promociones e imágenes para Instagram, Facebook y TikTok, con un estilo constante para tu marca.</p>
+        </div>
+        <div class="tarjeta">
+          <div class="icono">📊</div>
+          <h3>Herramientas en Excel</h3>
+          <p>Calculadoras de costos, control de ventas e inventario, hechas a la medida y fáciles de usar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EJEMPLO -->
+  <section class="fondo-azul" id="ejemplo">
+    <div class="contenedor ejemplo">
+      <div>
+        <span class="etiqueta">Ejemplo de trabajo</span>
+        <h2>Así puede verse la página de tu negocio</h2>
+        <p class="subtitulo">Hice esta página de demostración para una cafetería ficticia. Ábrela en tu celular: tiene menú, horario, mapa y botón para pedir por WhatsApp.</p>
+        <a class="boton boton-dorado" href="https://splua1312-blip.github.io/cafe-ejemplo/" target="_blank" rel="noopener">Ver la página de ejemplo</a>
+      </div>
+      <div class="maqueta" aria-hidden="true">
+        <div class="pantalla">
+          <small>CAFETERÍA DE BARRIO · PUEBLA</small>
+          <strong>El café de tu colonia, hecho con calma</strong>
+          <span>Pedir por WhatsApp</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANES -->
+  <section id="planes">
+    <div class="contenedor">
+      <h2>Planes para páginas web</h2>
+      <p class="subtitulo">Precios de lanzamiento mientras armo mi portafolio. Sin letras chiquitas.</p>
+      <div class="rejilla">
+        <div class="tarjeta plan">
+          <span class="insignia">LANZAMIENTO · PRIMEROS 3 NEGOCIOS</span>
+          <h3>Plan Único</h3>
+          <div class="precio">$900 <small>pago único</small></div>
+          <div class="tachado">Precio regular $1,500</div>
+          <ul>
+            <li>Página de una sección, adaptada a celular</li>
+            <li>Menú o servicios con precios</li>
+            <li>Horario, mapa y botón de WhatsApp</li>
+            <li>Publicada en internet + 1 ronda de cambios</li>
+            <li>Puedes pagarlo en 2 partes de $450</li>
+          </ul>
+        </div>
+        <div class="tarjeta plan destacado">
+          <span class="insignia">SIN PAGO INICIAL</span>
+          <h3>Plan Mensual</h3>
+          <div class="precio">$250 <small>al mes</small></div>
+          <div class="tachado" style="visibility:hidden">.</div>
+          <ul>
+            <li>Todo lo del Plan Único</li>
+            <li>Cambios de menú, precios y horario cada mes</li>
+            <li>Soporte por WhatsApp</li>
+            <li>Plazo mínimo de 3 meses</li>
+          </ul>
+        </div>
+      </div>
+      <p class="extras"><strong>Extras:</strong> ficha de Google Maps mejorada (fotos, horario y descripción) por $300. Dominio propio (ej. tunegocio.com): lo paga el negocio según el costo anual del registro. Plan Único: 50 % al iniciar y 50 % al entregar.</p>
+    </div>
+  </section>
+
+  <!-- RECURSOS GRATIS -->
+  <section class="fondo-claro" id="recursos" style="background: var(--crema-2);">
+    <div class="contenedor">
+      <h2>Recursos gratis</h2>
+      <p class="subtitulo">También comparto contenido de comercio exterior y logística, explicado simple.</p>
+      <div class="rejilla">
+        <div class="tarjeta recurso">
+          <div>
+            <div class="icono">🚢</div>
+            <h3>Calculadora de costos de importación</h3>
+            <p>Excel gratis para saber el costo real por pieza, tu margen y el precio que necesitas antes de comprar. Incluye tabla de Incoterms.</p>
+          </div>
+          <a class="enlace" href="https://drive.google.com/file/d/1gkutOXm62DGgloyXVPmVRpwMfzmnNLnb/view?usp=sharing" target="_blank" rel="noopener">Descargar calculadora →</a>
+        </div>
+        <div class="tarjeta recurso">
+          <div>
+            <div class="icono">📸</div>
+            <h3>Contenido en Instagram</h3>
+            <p>Carruseles y videos cortos sobre importación, costos ocultos e Incoterms.</p>
+          </div>
+          <a class="enlace" href="https://www.instagram.com/santycortez472/" target="_blank" rel="noopener">Ver Instagram →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section id="sobre-mi">
+    <div class="contenedor sobre">
+      <div class="foto" aria-hidden="true">SC</div>
+      <div>
+        <h2>Sobre mí</h2>
+        <p class="subtitulo" style="margin-bottom:12px">Soy Santiago Cortes, estudiante de Comercio y Logística Internacional en Puebla.</p>
+        <p>Estoy empezando a ayudar a negocios de mi zona a tener presencia en internet. Como voy comenzando, mis precios son accesibles y trabajo de cerca contigo: te explico todo y respondo por WhatsApp.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="fondo-azul contacto" id="contacto">
+    <div class="contenedor">
+      <h2>¿Platicamos sobre tu negocio?</h2>
+      <p class="subtitulo" style="margin: 0 auto 10px;">Escríbeme y te muestro cómo podría quedar tu página, sin compromiso.</p>
+      <div class="botones">
+        <!-- Tu número de WhatsApp va después de wa.me/ -->
+        <a class="boton boton-whatsapp" href="https://wa.me/522229549368?text=Hola%20Santiago%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20informaci%C3%B3n" target="_blank" rel="noopener">Escríbeme por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 Santiago Cortes · Puebla, México</footer>
+
+  <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+  <a class="flotante" href="https://wa.me/522229549368?text=Hola%20Santiago%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20informaci%C3%B3n" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-1.4-.7-2.4-1.3-3.3-2.9-.3-.4.3-.4.8-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.1 1.6 2.5 3.9 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg>
+  </a>
+
+</body>
+</html>
