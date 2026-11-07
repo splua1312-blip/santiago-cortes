@@ -6,7 +6,7 @@ Un proceso documentado permite que cualquiera de las dos personas pueda vender y
 
 | Paso | Acción | Responsable | Tiempo objetivo |
 |---|---|---|---|
-| 1. Identificar | Buscar en Google Maps negocios de la zona sin sitio web, con pocas fotos o sin horario. Registrar en la hoja de prospectos. | Santiago / Persona 2 | 20 prospectos por semana |
+| 1. Identificar | Buscar en Google Maps negocios de la zona sin sitio web, con pocas fotos o sin horario. Registrar en la hoja de prospectos. | Santiago / Carlos Antonio | 20 prospectos por semana |
 | 2. Contactar | Visita en persona (preferente) o mensaje de WhatsApp con el guion 4.6.1. Mostrar el ejemplo de Café La Esquina en el celular. | Santiago | — |
 | 3. Diagnosticar | Preguntar: ¿cómo los encuentran hoy sus clientes?, ¿qué preguntas responden más por WhatsApp?, ¿qué quieren vender más? | Santiago | 15 min |
 | 4. Proponer | Enviar propuesta por WhatsApp (guion 4.6.2) con un solo plan recomendado y una alternativa. | Santiago (Claude redacta el borrador) | Máximo 24 h después del diagnóstico |
@@ -100,4 +100,4 @@ Es decir, alrededor de **8 contactos por semana**. Las tasas reales se miden des
 | Paquetes mensuales de publicaciones | Pago por adelantado. |
 | Extras | 100 % antes de realizar el cambio. |
 
-**Regla:** si una mensualidad tiene más de 10 días de atraso, se suspenden los cambios (la página permanece publicada) hasta regularizar el pago. Cada cobro lo registra la Persona 2 el mismo día y se aplica la regla 10/15/75 (documento 2).
+**Regla:** si una mensualidad tiene más de 10 días de atraso, se suspenden los cambios (la página permanece publicada) hasta regularizar el pago. Cada cobro lo registra Carlos Antonio el mismo día y se aplica la regla 10/15/75 (documento 2).

@@ -110,7 +110,7 @@ $$\text{Administración} = 0.05 \times \text{Honorarios} = 0.0375 \times C$$
 $$\text{Producción} = 0.80 \times \text{Honorarios} = 0.60 \times C$$
 
 - **Responsable de la cuenta:** quien consiguió al cliente y lo atiende.
-- **Administración:** quien lleva las finanzas, la cobranza y el cierre mensual del negocio (Persona 2). Se paga sobre **todos** los cobros.
+- **Administración:** quien lleva las finanzas, la cobranza y el cierre mensual del negocio (Carlos Antonio). Se paga sobre **todos** los cobros.
 - **Producción:** quien hizo el trabajo. Si ambos produjeron, el 80 % se divide en proporción a las horas registradas.
 
 **Ejemplo 1 — Página a precio regular (*C* = $1,500):**
@@ -126,7 +126,7 @@ $$\text{Producción} = 0.80 \times \text{Honorarios} = 0.60 \times C$$
 
 **Ejemplo 2 — Mensualidad (*C* = $250):** reserva $25.00; fondo $37.50; honorarios $187.50 (cuenta $28.13; administración $9.38; producción $150.00). Los centavos se redondean en el cierre mensual.
 
-**Ejemplo 3 — Producción compartida.** Si en una página Santiago trabajó 3 h y la Persona 2 trabajó 2 h, el monto de producción ($900) se divide así: Santiago 900 × 3/5 = $540; Persona 2 900 × 2/5 = $360.
+**Ejemplo 3 — Producción compartida.** Si en una página Santiago trabajó 3 h y Carlos Antonio trabajó 2 h, el monto de producción ($900) se divide así: Santiago 900 × 3/5 = $540; Carlos Antonio 900 × 2/5 = $360.
 
 ## 2.7 Meta de ingresos
 

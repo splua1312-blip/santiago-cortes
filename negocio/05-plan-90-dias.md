@@ -2,14 +2,14 @@
 
 ## 5.1 Objetivo del trimestre
 
-> Al día 90, tener **6 clientes activos en Plan Mensual**, **al menos 6 páginas entregadas**, la Persona 2 integrada con su carta de acuerdo firmada y un ingreso mensual de al menos **$5,000** (mes 3 de la proyección del documento 2).
+> Al día 90, tener **6 clientes activos en Plan Mensual**, **al menos 6 páginas entregadas**, la incorporación de Carlos Antonio con su carta de acuerdo firmada y un ingreso mensual de al menos **$5,000** (mes 3 de la proyección del documento 2).
 
 ## 5.2 Hitos por etapa
 
 ### Semanas 1 y 2 — Bases
 
 - [ ] Leer y aprobar este manual; resolver las decisiones pendientes del [README](README.md).
-- [ ] Elegir a la Persona 2 y firmar la carta de acuerdo de la Fase 1 (documento 3).
+- [ ] Presentar la propuesta a Carlos Antonio y firmar la carta de acuerdo de la Fase 1 (documento 3).
 - [ ] Consultar a un contador: alta en el SAT (RESICO), tratamiento del IVA y facturación.
 - [ ] Redactar el aviso de privacidad del negocio.
 - [ ] Crear la carpeta compartida, la hoja de control (prospectos, clientes, cobros, horas) y el grupo de WhatsApp interno.
@@ -29,7 +29,7 @@
 - [ ] Sustituir las opiniones “de ejemplo” del sitio por opiniones reales.
 - [ ] Ofrecer a los clientes existentes la ficha de Google Maps y el paquete de publicaciones.
 - [ ] Vender el primer paquete mensual de publicaciones (Santiago, con diseño de Claude).
-- [ ] Vender los primeros 2 clientes de control mensual de ventas y gastos (Persona 2).
+- [ ] Vender los primeros 2 clientes de control mensual de ventas y gastos (Carlos Antonio).
 
 ### Semanas 11 a 13 — Evaluación
 

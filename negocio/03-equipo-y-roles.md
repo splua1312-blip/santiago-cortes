@@ -13,7 +13,7 @@ El negocio opera con **tres integrantes**: dos personas, que toman decisiones y 
           ┌─────────────────────┴─────────────────────┐
           │                                           │
 ┌─────────▼──────────┐                     ┌──────────▼──────────┐
-│     Persona 2      │                     │     Claude (IA)     │
+│   Carlos Antonio   │                     │     Claude (IA)     │
 │ Finanzas, admin. y │◄──── colaboran ────►│ Diseño, contenido y │
 │ servicios financ.  │                     │ producción          │
 └────────────────────┘                     └─────────────────────┘
@@ -31,7 +31,7 @@ El negocio opera con **tres integrantes**: dos personas, que toman decisiones y 
 | Producción | Desarrollo y publicación de páginas web. |
 | Diseño y contenido | Supervisa y aprueba el diseño de publicaciones y kits de marca que produce Claude; toma las fotografías en la visita al cliente. |
 
-### Persona 2 — Administración, finanzas y servicios financieros
+### Carlos Antonio — Administración, finanzas y servicios financieros
 
 La segunda persona es un conocido con formación en **finanzas y contabilidad**. Su perfil **complementa** el de Santiago, sin duplicarlo. El diseño y el contenido quedan a cargo de Santiago con el apoyo de Claude. Sus áreas fuertes se confirmarán con la lista incluida en la propuesta de integración.
 
@@ -62,7 +62,7 @@ La segunda persona es un conocido con formación en **finanzas y contabilidad**.
 
 **R** = Realiza · **A** = Aprueba (responsable final) · **C** = Consultado · **I** = Informado
 
-| Actividad | Santiago | Persona 2 | Claude |
+| Actividad | Santiago | Carlos Antonio | Claude |
 |---|:---:|:---:|:---:|
 | Prospección y visitas | A / R | R | C |
 | Propuesta y cotización | A / R | C (precios y margen) | R (borrador) |
@@ -84,7 +84,7 @@ La segunda persona es un conocido con formación en **finanzas y contabilidad**.
 |---|---|---|---|
 | Arranque semanal | Lunes | 30 min | Prospectos de la semana, entregas pendientes, asignación de tareas. |
 | Revisión de calidad | Antes de cada entrega | 15 min | Lista de verificación de la página o del paquete (documento 4). |
-| Cierre mensual | Último día hábil | 60 min | Persona 2 presenta ingresos, reparto 10/15/75 e indicadores (documento 5); se toman decisiones. |
+| Cierre mensual | Último día hábil | 60 min | Carlos Antonio presenta ingresos, reparto 10/15/75 e indicadores (documento 5); se toman decisiones. |
 
 **Herramientas compartidas recomendadas:** un grupo de WhatsApp interno, una carpeta compartida en la nube con subcarpeta por cliente, una hoja de cálculo de control (clientes, cobros, horas) y este repositorio como manual.
 
@@ -96,7 +96,7 @@ La causa más común de ruptura en equipos fundadores es no haber pactado por es
 
 ### Fase 1 — Periodo de prueba (90 días)
 
-- La Persona 2 participa como **colaboración por proyecto**: cobra según la regla de reparto, sin formar parte aún de una sociedad.
+- Carlos Antonio colabora **por proyecto**: cobra según la regla de reparto, sin formar parte aún de una sociedad.
 - Ambos firman una **carta de acuerdo** sencilla (una o dos páginas) con los puntos de la sección 3.6.
 - Etapas: días 1 a 30, orden financiero del negocio; días 31 a 60, lanzamiento de los servicios financieros; días 61 a 90, evaluación.
 - Al día 90 se evalúan los resultados con criterios objetivos: entregas a tiempo, horas aportadas, clientes conseguidos o atendidos y trabajo en equipo.
@@ -108,7 +108,7 @@ La causa más común de ruptura en equipos fundadores es no haber pactado por es
 | Seguir como colaboradores | Dedicación parcial o incierta | Cada persona se da de alta en el SAT y factura su parte; la marca sigue siendo de Santiago. |
 | Sociedad formal (por ejemplo, una Sociedad por Acciones Simplificada) | Ambos dedicados de forma estable y con ingresos constantes | Se constituye una empresa; se define el porcentaje de cada socio y la marca pasa a ser del negocio. Requiere asesoría contable y legal. |
 
-**Recomendación sobre la marca:** el sitio actual está construido como marca personal (“Santiago Cortes”). Si se forma una sociedad, conviene evaluar un nombre de estudio neutral; mientras tanto, se mantiene la marca personal y se presenta a la Persona 2 como parte del equipo.
+**Recomendación sobre la marca:** el sitio actual está construido como marca personal (“Santiago Cortes”). Si se forma una sociedad, conviene evaluar un nombre de estudio neutral; mientras tanto, se mantiene la marca personal y se presenta a Carlos Antonio como parte del equipo.
 
 ### 3.6 Contenido mínimo de la carta de acuerdo
 
