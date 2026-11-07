@@ -41,7 +41,7 @@ Este directorio reúne las **bases del negocio**: qué hacemos, para quién, có
 
 1. Confirmar con Carlos Antonio sus áreas fuertes (la propuesta incluye una lista para que las marque) y ajustar su rol.
 2. Decidir si los contenidos de **comercio exterior y logística** (calculadora de importación, Instagram) permanecen en el sitio. Recomendación: moverlos a un perfil personal separado, porque el cliente objetivo (un negocio de barrio) no los necesita y diluyen el mensaje.
-3. Validar con un contador si los precios **incluyen IVA** y el alta en el Régimen Simplificado de Confianza (RESICO).
+3. Definir (a cargo de Carlos Antonio) si los precios **incluyen IVA** y cuándo conviene el alta en el Régimen Simplificado de Confianza (RESICO).
 4. Definir los precios de diseño de publicaciones, de Excel y del control mensual de ventas y gastos (hoy el sitio no los muestra; en el documento 2 hay una propuesta).
 
 ## Cómo trabajar con este manual

@@ -89,7 +89,7 @@ El lienzo del modelo de negocio de Osterwalder y Pigneur (2010) resume en nueve 
 | **Fuentes de ingreso** | Pagos únicos (página, ficha de Maps, Excel, kit de marca) + suscripciones (Plan Mensual, paquete de publicaciones). |
 | **Recursos clave** | Habilidades de diseño y desarrollo, plantillas reutilizables, portafolio, IA (Claude), tiempo del equipo. |
 | **Actividades clave** | Prospección y venta, producción de páginas y contenido, mantenimiento, cobranza. |
-| **Socios clave** | Proveedores de hospedaje y dominio, herramientas de diseño, contador, clientes que recomiendan. |
+| **Socios clave** | Proveedores de hospedaje y dominio, herramientas de diseño, clientes que recomiendan. |
 | **Estructura de costos** | Mayoritariamente costos fijos bajos (herramientas digitales) y tiempo del equipo; costos variables mínimos (transporte, dominio cuando lo gestionamos). |
 
 ## 1.8 Validación y aprendizaje
@@ -108,5 +108,5 @@ El negocio está en etapa de **validación**: los precios de lanzamiento y los p
 | Clientes que piden cambios sin fin | Media | Alcance por escrito y 1 ronda de cambios incluida; cambios extra con costo. |
 | Dependencia de una sola persona para vender | Alta | Guiones y procesos documentados (documento 4) para que ambos puedan vender. |
 | Impagos | Media | 50 % de anticipo; la página se publica tras el pago final; mensualidad por adelantado. |
-| Incumplimiento fiscal o de datos personales | Media | Alta en el SAT, asesoría contable y aviso de privacidad (ver documentos 2 y 3). |
+| Incumplimiento fiscal o de datos personales | Media | Control fiscal a cargo de Carlos Antonio, alta en el SAT cuando el volumen lo requiera y aviso de privacidad (ver documentos 2 y 3). |
 | Mensaje confuso (mezcla con comercio exterior) | Media | Separar el contenido de logística del sitio comercial. |

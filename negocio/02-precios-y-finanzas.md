@@ -176,7 +176,7 @@ $$\% \text{ recurrente} = \frac{MRR}{R} = \frac{4{,}200}{8{,}000} = 52.5\,\%$$
 
 $$\text{Capital de arranque} = \sum_{m=1}^{3} \max(0,\ F - 0.15 \cdot R_m) = 420 + 465 + 135 = \$1{,}020$$
 
-## 2.9 Impuestos: IVA y RESICO (consultar con un contador)
+## 2.9 Impuestos: IVA y RESICO
 
 ### IVA
 
@@ -206,7 +206,7 @@ Cuando el cliente es una persona moral (empresa), esta retiene el 1.25 % del ing
 
 **Conclusión práctica:** la reserva fiscal del 10 % cubre con holgura el ISR del RESICO (1 % en el rango actual) y deja un colchón para emergencias. **Si se cobra IVA, ese IVA se separa aparte**; el 10 % no alcanza para cubrirlo.
 
-> Cada persona del equipo que reciba ingresos debe estar dada de alta en el SAT. La forma jurídica (dos personas físicas que se facturan entre sí, o una sociedad) se decide al cierre de los 90 días (ver documento 3). Este apartado es orientativo y **no sustituye la asesoría de un contador**.
+> Cada persona del equipo que reciba ingresos debe estar dada de alta en el SAT. La forma jurídica (dos personas físicas que se facturan entre sí, o una sociedad) se decide al cierre de los 90 días (ver documento 3). Este apartado es orientativo; Carlos Antonio le da seguimiento.
 
 ## 2.10 Indicadores financieros de clientes
 

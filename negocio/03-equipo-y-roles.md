@@ -37,14 +37,14 @@ La segunda persona es un conocido con formación en **finanzas y contabilidad**.
 
 | Área | Responsabilidades |
 |---|---|
-| Finanzas y administración del negocio | Registro de cobros y gastos; aplicación de la regla 10/15/75; cierre mensual con indicadores (documento 5); control de la reserva fiscal; coordinación con el contador (alta en el SAT, RESICO, facturación). |
+| Finanzas y administración del negocio | Registro de cobros y gastos; aplicación de la regla 10/15/75; cierre mensual con indicadores (documento 5); control de la reserva fiscal; control de la facturación y de las obligaciones ante el SAT (RESICO) cuando apliquen. |
 | Cobranza y rentabilidad | Seguimiento de anticipos y mensualidades; recordatorios de pago; revisión trimestral de márgenes por servicio y propuesta de ajustes de precio. |
 | Servicios financieros para clientes | Encabeza las herramientas en Excel (costos, precios, ventas e inventario) y el servicio de control mensual de ventas y gastos. |
 | Ventas y atención (secundario) | Venta cruzada de servicios financieros a clientes con página; acompaña visitas; atiende las cuentas que consiga. |
 
 **Perfil que se busca:** conocimientos de finanzas o contabilidad, dominio de Excel, orden con números y plazos, disponibilidad de 8 a 10 horas por semana y capacidad para explicar con claridad a dueños de negocios pequeños.
 
-**Límite del servicio financiero:** el control mensual es un servicio administrativo; no incluye la presentación de declaraciones ante el SAT, que corresponde a un contador.
+**Límite del servicio financiero:** el control mensual es un servicio administrativo; no incluye la presentación de declaraciones ante el SAT.
 
 ### Claude (IA) — Asistente de producción
 
@@ -75,7 +75,7 @@ La segunda persona es un conocido con formación en **finanzas y contabilidad**.
 | Control mensual de ventas y gastos | I | A / R | R (borrador del reporte) |
 | Cobranza y registro de pagos | I | A / R | — |
 | Cierre mensual, reparto e indicadores | C | A / R | R (cálculos) |
-| Coordinación con el contador | I | A / R | — |
+| Obligaciones fiscales y facturación | I | A / R | — |
 | Actualización de este manual | A | C | R |
 
 ## 3.4 Ritmo de trabajo del equipo
@@ -106,7 +106,7 @@ La causa más común de ruptura en equipos fundadores es no haber pactado por es
 | Opción | Cuándo conviene | Implicaciones |
 |---|---|---|
 | Seguir como colaboradores | Dedicación parcial o incierta | Cada persona se da de alta en el SAT y factura su parte; la marca sigue siendo de Santiago. |
-| Sociedad formal (por ejemplo, una Sociedad por Acciones Simplificada) | Ambos dedicados de forma estable y con ingresos constantes | Se constituye una empresa; se define el porcentaje de cada socio y la marca pasa a ser del negocio. Requiere asesoría contable y legal. |
+| Sociedad formal (por ejemplo, una Sociedad por Acciones Simplificada) | Ambos dedicados de forma estable y con ingresos constantes | Se constituye una empresa; se define el porcentaje de cada socio y la marca pasa a ser del negocio. En su momento requerirá asesoría legal y contable. |
 
 **Recomendación sobre la marca:** el sitio actual está construido como marca personal (“Santiago Cortes”). Si se forma una sociedad, conviene evaluar un nombre de estudio neutral; mientras tanto, se mantiene la marca personal y se presenta a Carlos Antonio como parte del equipo.
 

@@ -22,5 +22,5 @@ Wasserman, N. (2012). *The founder's dilemmas: Anticipating and avoiding the pit
 
 **Notas sobre las fuentes**
 
-- Las tasas del RESICO se tomaron del artículo 113-E de la LISR; conviene confirmar con un contador el texto vigente y su aplicación al caso concreto.
+- Las tasas del RESICO se tomaron del artículo 113-E de la LISR; conviene confirmar el texto vigente antes de aplicarlas.
 - Las cifras de la ENDUTIH 2024 (100.2 millones de usuarios; 83.1 % de la población de 6 años y más; 97.2 % se conecta por teléfono inteligente) y de los Censos Económicos 2019 (99.8 % de los establecimientos son micro, pequeños o medianos) provienen de los comunicados oficiales del INEGI citados.

@@ -10,7 +10,7 @@
 
 - [ ] Leer y aprobar este manual; resolver las decisiones pendientes del [README](README.md).
 - [ ] Presentar la propuesta a Carlos Antonio y firmar la carta de acuerdo de la Fase 1 (documento 3).
-- [ ] Consultar a un contador: alta en el SAT (RESICO), tratamiento del IVA y facturación.
+- [ ] Carlos Antonio revisa el alta en el SAT (RESICO), el tratamiento del IVA y la facturación.
 - [ ] Redactar el aviso de privacidad del negocio.
 - [ ] Crear la carpeta compartida, la hoja de control (prospectos, clientes, cobros, horas) y el grupo de WhatsApp interno.
 - [ ] Convertir la página de Café La Esquina en **plantilla reutilizable** (Claude).
