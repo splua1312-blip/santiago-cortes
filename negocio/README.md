@@ -33,16 +33,16 @@ Este directorio reúne las **bases del negocio**: qué hacemos, para quién, có
 
 | Integrante | Rol |
 |---|---|
-| Santiago Cortes | Dirección, ventas y relación con clientes; desarrollo web; herramientas en Excel. |
-| Persona 2 (por incorporar) | Diseño y contenido: identidad visual, publicaciones para redes, fotografía y calendario de contenido. |
-| Claude (IA) | Asistente de producción: redacción, código de páginas, propuestas, fórmulas de Excel y documentación. Todo su trabajo lo revisa una persona antes de llegar al cliente. |
+| Santiago Cortes | Dirección, ventas y relación con clientes; desarrollo web; supervisión del diseño y el contenido. |
+| Persona 2 (por incorporar; perfil de finanzas y contabilidad) | Administración y finanzas del negocio, cobranza y rentabilidad; encabeza los servicios financieros para clientes (Excel y control mensual de ventas y gastos); apoyo en ventas. |
+| Claude (IA) | Asistente de producción: diseño de publicaciones y textos, código de páginas, propuestas, fórmulas de Excel, reportes y documentación. Todo su trabajo lo revisa una persona antes de llegar al cliente. |
 
 ## Decisiones pendientes del titular
 
-1. Confirmar el perfil de la Persona 2 (diseño y contenido, o bien ventas).
+1. Confirmar con la Persona 2 sus áreas fuertes (la propuesta incluye una lista para que las marque) y ajustar su rol.
 2. Decidir si los contenidos de **comercio exterior y logística** (calculadora de importación, Instagram) permanecen en el sitio. Recomendación: moverlos a un perfil personal separado, porque el cliente objetivo (un negocio de barrio) no los necesita y diluyen el mensaje.
 3. Validar con un contador si los precios **incluyen IVA** y el alta en el Régimen Simplificado de Confianza (RESICO).
-4. Definir los precios de diseño de publicaciones y de Excel (hoy el sitio no los muestra; en el documento 2 hay una propuesta).
+4. Definir los precios de diseño de publicaciones, de Excel y del control mensual de ventas y gastos (hoy el sitio no los muestra; en el documento 2 hay una propuesta).
 
 ## Cómo trabajar con este manual
 

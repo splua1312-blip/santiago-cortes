@@ -70,6 +70,7 @@ Elementos diferenciadores:
 | B. Contenido | Kit de marca básico (logotipo sencillo, colores y plantillas) | Pago único |
 | C. Excel | Calculadora de costos y precios | Pago único |
 | C. Excel | Control de ventas e inventario | Pago único |
+| C. Finanzas | Control mensual de ventas y gastos (resumen mensual de ventas, gastos, utilidad y producto más rentable; no incluye declaraciones ante el SAT) | Recurrente |
 
 Los precios y su justificación financiera están en el [documento 2](02-precios-y-finanzas.md).
 

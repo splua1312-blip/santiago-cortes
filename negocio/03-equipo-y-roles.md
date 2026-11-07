@@ -7,15 +7,15 @@ El negocio opera con **tres integrantes**: dos personas, que toman decisiones y 
 ```
                 ┌───────────────────────────────┐
                 │        Santiago Cortes        │
-                │ Dirección · Ventas · Web/Excel│
+                │ Dirección · Ventas · Web      │
                 └───────────────┬───────────────┘
                                 │
           ┌─────────────────────┴─────────────────────┐
           │                                           │
 ┌─────────▼──────────┐                     ┌──────────▼──────────┐
 │     Persona 2      │                     │     Claude (IA)     │
-│ Diseño y contenido │◄──── colaboran ────►│ Asistente de        │
-│                    │                     │ producción          │
+│ Finanzas, admin. y │◄──── colaboran ────►│ Diseño, contenido y │
+│ servicios financ.  │                     │ producción          │
 └────────────────────┘                     └─────────────────────┘
 ```
 
@@ -28,30 +28,29 @@ El negocio opera con **tres integrantes**: dos personas, que toman decisiones y 
 | Dirección | Decisiones de precio y servicios; seguimiento de metas y del presente manual. |
 | Ventas | Prospección, primera visita, propuesta, cierre y firma del acuerdo con el cliente. |
 | Relación con clientes | Responsable de la cuenta: comunicación por WhatsApp, cobranza, renovaciones. |
-| Producción | Desarrollo y publicación de páginas web; herramientas en Excel. |
-| Administración | Registro de cobros, aplicación de la regla 10/15/75, archivo de documentos. |
+| Producción | Desarrollo y publicación de páginas web. |
+| Diseño y contenido | Supervisa y aprueba el diseño de publicaciones y kits de marca que produce Claude; toma las fotografías en la visita al cliente. |
 
-### Persona 2 — Diseño y contenido (perfil recomendado)
+### Persona 2 — Administración, finanzas y servicios financieros
 
-Se recomienda que la segunda persona **complemente** las habilidades de Santiago, no que las duplique. Como Santiago ya cubre ventas, web y Excel, el perfil con más valor es el de **diseño y contenido**.
+La segunda persona es un conocido con formación en **finanzas y contabilidad**. Su perfil **complementa** el de Santiago, sin duplicarlo. El diseño y el contenido quedan a cargo de Santiago con el apoyo de Claude. Sus áreas fuertes se confirmarán con la lista incluida en la propuesta de integración.
 
 | Área | Responsabilidades |
 |---|---|
-| Identidad visual | Kit de marca básico de cada cliente (colores, tipografía, plantillas). |
-| Contenido para redes | Diseño de paquetes mensuales de publicaciones; calendario de contenido. |
-| Fotografía | Fotos de producto y del local durante la visita al cliente. |
-| Calidad | Revisión visual de cada página antes de entregarla. |
-| Ventas (secundario) | Detectar prospectos y presentar el portafolio cuando Santiago no esté disponible. |
+| Finanzas y administración del negocio | Registro de cobros y gastos; aplicación de la regla 10/15/75; cierre mensual con indicadores (documento 5); control de la reserva fiscal; coordinación con el contador (alta en el SAT, RESICO, facturación). |
+| Cobranza y rentabilidad | Seguimiento de anticipos y mensualidades; recordatorios de pago; revisión trimestral de márgenes por servicio y propuesta de ajustes de precio. |
+| Servicios financieros para clientes | Encabeza las herramientas en Excel (costos, precios, ventas e inventario) y el servicio de control mensual de ventas y gastos. |
+| Ventas y atención (secundario) | Venta cruzada de servicios financieros a clientes con página; acompaña visitas; atiende las cuentas que consiga. |
 
-**Perfil que se busca:** manejo de Canva o herramientas similares, buen ojo para la fotografía con celular, responsabilidad con los plazos, disponibilidad mínima de 8 a 10 horas por semana, y afinidad con el trato directo a negocios locales.
+**Perfil que se busca:** conocimientos de finanzas o contabilidad, dominio de Excel, orden con números y plazos, disponibilidad de 8 a 10 horas por semana y capacidad para explicar con claridad a dueños de negocios pequeños.
 
-**Alternativa:** si la persona elegida tiene más talento para vender que para diseñar, se invierten los roles: la Persona 2 asume la prospección y Santiago se concentra en la producción. La regla de reparto (documento 2) funciona igual en ambos casos, porque paga por función realizada, no por persona.
+**Límite del servicio financiero:** el control mensual es un servicio administrativo; no incluye la presentación de declaraciones ante el SAT, que corresponde a un contador.
 
 ### Claude (IA) — Asistente de producción
 
 | Puede hacer | No puede hacer |
 |---|---|
-| Redactar textos de páginas, descripciones de Google Maps y publicaciones. | Hablar directamente con clientes ni enviarles mensajes. |
+| Diseñar publicaciones y kits de marca; redactar textos de páginas, descripciones de Google Maps y publicaciones. | Hablar directamente con clientes ni enviarles mensajes. |
 | Generar y modificar el código de las páginas a partir de la plantilla. | Recibir pagos ni firmar acuerdos. |
 | Preparar propuestas, cotizaciones y guiones de venta. | Recordar conversaciones anteriores (por eso existe este manual). |
 | Construir fórmulas y hojas de Excel. | Garantizar exactitud sin revisión humana. |
@@ -66,14 +65,17 @@ Se recomienda que la segunda persona **complemente** las habilidades de Santiago
 | Actividad | Santiago | Persona 2 | Claude |
 |---|:---:|:---:|:---:|
 | Prospección y visitas | A / R | R | C |
-| Propuesta y cotización | A / R | C | R (borrador) |
-| Contenido de la página (textos) | A | C | R (borrador) |
-| Diseño visual y fotografías | C | A / R | — |
-| Desarrollo y publicación de la página | A / R | C | R (código) |
-| Revisión de calidad antes de entregar | R | A | C |
-| Paquete mensual de publicaciones | I | A / R | R (textos) |
-| Herramientas en Excel | A / R | — | R (fórmulas) |
-| Cobranza y registro de pagos | A / R | I | — |
+| Propuesta y cotización | A / R | C (precios y margen) | R (borrador) |
+| Contenido de la página (textos) | A | — | R (borrador) |
+| Diseño visual y paquetes de publicaciones | A | — | R |
+| Fotografías en la visita | R | C | — |
+| Desarrollo y publicación de la página | A / R | — | R (código) |
+| Revisión de calidad antes de entregar | A / R | C | C |
+| Herramientas en Excel para clientes | C | A / R | R (fórmulas) |
+| Control mensual de ventas y gastos | I | A / R | R (borrador del reporte) |
+| Cobranza y registro de pagos | I | A / R | — |
+| Cierre mensual, reparto e indicadores | C | A / R | R (cálculos) |
+| Coordinación con el contador | I | A / R | — |
 | Actualización de este manual | A | C | R |
 
 ## 3.4 Ritmo de trabajo del equipo
@@ -82,7 +84,7 @@ Se recomienda que la segunda persona **complemente** las habilidades de Santiago
 |---|---|---|---|
 | Arranque semanal | Lunes | 30 min | Prospectos de la semana, entregas pendientes, asignación de tareas. |
 | Revisión de calidad | Antes de cada entrega | 15 min | Lista de verificación de la página o del paquete (documento 4). |
-| Cierre mensual | Último día hábil | 60 min | Ingresos, reparto 10/15/75, indicadores (documento 5) y decisiones. |
+| Cierre mensual | Último día hábil | 60 min | Persona 2 presenta ingresos, reparto 10/15/75 e indicadores (documento 5); se toman decisiones. |
 
 **Herramientas compartidas recomendadas:** un grupo de WhatsApp interno, una carpeta compartida en la nube con subcarpeta por cliente, una hoja de cálculo de control (clientes, cobros, horas) y este repositorio como manual.
 
@@ -94,8 +96,9 @@ La causa más común de ruptura en equipos fundadores es no haber pactado por es
 
 ### Fase 1 — Periodo de prueba (90 días)
 
-- La Persona 2 participa como **colaboradora por proyecto**: cobra según la regla de reparto, sin ser aún socia.
+- La Persona 2 participa como **colaboración por proyecto**: cobra según la regla de reparto, sin formar parte aún de una sociedad.
 - Ambos firman una **carta de acuerdo** sencilla (una o dos páginas) con los puntos de la sección 3.6.
+- Etapas: días 1 a 30, orden financiero del negocio; días 31 a 60, lanzamiento de los servicios financieros; días 61 a 90, evaluación.
 - Al día 90 se evalúan los resultados con criterios objetivos: entregas a tiempo, horas aportadas, clientes conseguidos o atendidos y trabajo en equipo.
 
 ### Fase 2 — Decisión de sociedad (a partir del día 90)

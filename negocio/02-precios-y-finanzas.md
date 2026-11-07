@@ -28,8 +28,9 @@ Los precios de **lanzamiento** aplican a los primeros 3 clientes de cada línea 
 | Kit de marca básico | $800 | $1,200 | 4.0 | $200/h | $300/h |
 | Excel: plantilla adaptada | $500 | $600 | 2.5 | $200/h | $240/h |
 | Excel: herramienta a medida | $1,200 | $1,500 | 6.0 | $200/h | $250/h |
+| Control mensual de ventas y gastos | $400/mes | $500/mes | 2.0/mes | $200/h | $250/h |
 
-Los precios de publicaciones, kit de marca y Excel son **propuesta** (aún no se publican en el sitio) y deben validarse con los primeros clientes.
+Los precios de publicaciones, kit de marca, Excel y control mensual son **propuesta** (aún no se publican en el sitio) y deben validarse con los primeros clientes.
 
 ### Fórmula de la tarifa efectiva por hora
 
@@ -102,9 +103,14 @@ Para evitar conflictos entre las dos personas y asegurar que siempre haya dinero
 
 $$\text{Honorarios} = 0.75 \times C$$
 
-$$\text{Responsable de la cuenta} = 0.20 \times \text{Honorarios} \qquad \text{Producción} = 0.80 \times \text{Honorarios}$$
+$$\text{Responsable de la cuenta} = 0.15 \times \text{Honorarios} = 0.1125 \times C$$
 
-- **Responsable de la cuenta:** quien consiguió al cliente, lo atiende y le cobra.
+$$\text{Administración} = 0.05 \times \text{Honorarios} = 0.0375 \times C$$
+
+$$\text{Producción} = 0.80 \times \text{Honorarios} = 0.60 \times C$$
+
+- **Responsable de la cuenta:** quien consiguió al cliente y lo atiende.
+- **Administración:** quien lleva las finanzas, la cobranza y el cierre mensual del negocio (Persona 2). Se paga sobre **todos** los cobros.
 - **Producción:** quien hizo el trabajo. Si ambos produjeron, el 80 % se divide en proporción a las horas registradas.
 
 **Ejemplo 1 — Página a precio regular (*C* = $1,500):**
@@ -114,10 +120,11 @@ $$\text{Responsable de la cuenta} = 0.20 \times \text{Honorarios} \qquad \text{P
 | Reserva fiscal | 1,500 × 0.10 | $150.00 |
 | Fondo del negocio | 1,500 × 0.15 | $225.00 |
 | Honorarios | 1,500 × 0.75 | $1,125.00 |
-| → Responsable de la cuenta | 1,125 × 0.20 | $225.00 |
+| → Responsable de la cuenta | 1,125 × 0.15 | $168.75 |
+| → Administración | 1,125 × 0.05 | $56.25 |
 | → Producción | 1,125 × 0.80 | $900.00 |
 
-**Ejemplo 2 — Mensualidad (*C* = $250):** reserva $25.00; fondo $37.50; honorarios $187.50 (cuenta $37.50; producción $150.00).
+**Ejemplo 2 — Mensualidad (*C* = $250):** reserva $25.00; fondo $37.50; honorarios $187.50 (cuenta $28.13; administración $9.38; producción $150.00). Los centavos se redondean en el cierre mensual.
 
 **Ejemplo 3 — Producción compartida.** Si en una página Santiago trabajó 3 h y la Persona 2 trabajó 2 h, el monto de producción ($900) se divide así: Santiago 900 × 3/5 = $540; Persona 2 900 × 2/5 = $360.
 

@@ -27,10 +27,10 @@ Es decir, alrededor de **8 contactos por semana**. Las tasas reales se miden des
 
 | Etapa | Actividades | Responsable | Duración |
 |---|---|---|---|
-| 1. Recopilación | Visita al negocio: fotos, menú o servicios con precios, horario, dirección, número de WhatsApp, logotipo. Lista en 4.5. | Persona 2 (fotos) / Santiago (datos) | 1 h |
+| 1. Recopilación | Visita al negocio: fotos, menú o servicios con precios, horario, dirección, número de WhatsApp, logotipo. Lista en 4.5. | Santiago (fotos y datos) | 1 h |
 | 2. Contenido | Redacción de textos a partir de la información recopilada. | Claude (borrador) → Santiago (revisión) | 0.5 h |
 | 3. Construcción | Adaptación de la plantilla (basada en Café La Esquina): colores, textos, fotos, mapa, botón de WhatsApp. | Santiago + Claude | 2 h |
-| 4. Revisión interna | Lista de verificación de calidad (4.4). | Persona 2 | 0.5 h |
+| 4. Revisión interna | Lista de verificación de calidad (4.4). | Santiago (Claude apoya con la revisión de textos) | 0.5 h |
 | 5. Revisión del cliente | Se envía el enlace de vista previa; se incluye **1 ronda de cambios**. | Santiago | 0.5 h |
 | 6. Publicación | Cobro del 50 % restante → publicación en internet → entrega del enlace y de una imagen con código QR para el local. | Santiago | 0.5 h |
 | **Total** | | | **5 h** |
@@ -100,4 +100,4 @@ Es decir, alrededor de **8 contactos por semana**. Las tasas reales se miden des
 | Paquetes mensuales de publicaciones | Pago por adelantado. |
 | Extras | 100 % antes de realizar el cambio. |
 
-**Regla:** si una mensualidad tiene más de 10 días de atraso, se suspenden los cambios (la página permanece publicada) hasta regularizar el pago. Cada cobro se registra el mismo día y se aplica la regla 10/15/75 (documento 2).
+**Regla:** si una mensualidad tiene más de 10 días de atraso, se suspenden los cambios (la página permanece publicada) hasta regularizar el pago. Cada cobro lo registra la Persona 2 el mismo día y se aplica la regla 10/15/75 (documento 2).

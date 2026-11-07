@@ -28,7 +28,8 @@
 - [ ] Subir la página al precio regular ($1,500) y aplicar la nueva condición del Plan Mensual (documento 2, sección 2.4).
 - [ ] Sustituir las opiniones “de ejemplo” del sitio por opiniones reales.
 - [ ] Ofrecer a los clientes existentes la ficha de Google Maps y el paquete de publicaciones.
-- [ ] Vender el primer paquete mensual de publicaciones (Persona 2).
+- [ ] Vender el primer paquete mensual de publicaciones (Santiago, con diseño de Claude).
+- [ ] Vender los primeros 2 clientes de control mensual de ventas y gastos (Persona 2).
 
 ### Semanas 11 a 13 — Evaluación
 
