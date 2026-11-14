@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "id": "demo",
+  "nombre": "Antojitos El Portal",
+  "lema": "Demostración · Antojitos poblanos al momento",
+  "logo": "🌮",
+  "color": "#b3401e",
+  "whatsapp": "522229549368",
+  "direccion": "Calle Ejemplo 123, Centro, Puebla",
+  "aviso": "Envío gratis en pedidos desde $300",
+  "horario": [
+    ["10:00", "16:00"],
+    ["09:00", "21:00"],
+    ["09:00", "21:00"],
+    ["09:00", "21:00"],
+    ["09:00", "21:00"],
+    ["09:00", "23:00"],
+    ["09:00", "23:00"]
+  ],
+  "entrega": {
+    "recoger": true,
+    "domicilio": true,
+    "costoEnvio": 25,
+    "pedidoMinimo": 80,
+    "envioGratisDesde": 300
+  },
+  "pagos": ["Efectivo", "Transferencia"],
+  "datosTransferencia": "Banco de ejemplo · CLABE 000000000000000000 · A nombre de Antojitos El Portal. Envía tu comprobante por este chat.",
+  "mostrarMarca": true,
+  "categorias": [
+    {
+      "nombre": "Cemitas",
+      "productos": [
+        { "nombre": "Cemita de milanesa", "descripcion": "Milanesa de res, quesillo, aguacate, pápalo y chipotle.", "precio": 65, "icono": "🥪", "imagen": "", "variantes": [], "agotado": false },
+        { "nombre": "Cemita de pata", "descripcion": "Pata de res en vinagre con quesillo y aguacate.", "precio": 70, "icono": "🥪", "imagen": "", "variantes": [], "agotado": false },
+        { "nombre": "Cemita de quesillo", "descripcion": "Opción sin carne: doble quesillo, aguacate y rajas.", "precio": 55, "icono": "🧀", "imagen": "", "variantes": [], "agotado": false }
+      ]
+    },
+    {
+      "nombre": "Antojitos",
+      "productos": [
+        { "nombre": "Chalupas", "descripcion": "Orden de 6, mitad verdes y mitad rojas, con carne deshebrada.", "precio": 45, "icono": "🫓", "imagen": "", "variantes": [], "agotado": false },
+        { "nombre": "Molotes", "descripcion": "Orden de 3. Elige el relleno.", "precio": 0, "icono": "🥟", "imagen": "", "variantes": [
+          { "nombre": "Papa con chorizo", "precio": 50 },
+          { "nombre": "Tinga", "precio": 55 },
+          { "nombre": "Quesillo", "precio": 50 }
+        ], "agotado": false },
+        { "nombre": "Taco árabe", "descripcion": "Carne al trompo en pan árabe, con salsa de chipotle.", "precio": 28, "icono": "🌯", "imagen": "", "variantes": [], "agotado": false },
+        { "nombre": "Pelona", "descripcion": "Pan frito con carne deshebrada, lechuga, crema y salsa.", "precio": 40, "icono": "🍔", "imagen": "", "variantes": [], "agotado": true }
+      ]
+    },
+    {
+      "nombre": "Bebidas",
+      "productos": [
+        { "nombre": "Agua fresca del día", "descripcion": "Jamaica u horchata, según el día.", "precio": 0, "icono": "🥤", "imagen": "", "variantes": [
+          { "nombre": "Chica", "precio": 20 },
+          { "nombre": "Grande", "precio": 30 }
+        ], "agotado": false },
+        { "nombre": "Refresco", "descripcion": "Botella de 355 ml.", "precio": 25, "icono": "🧃", "imagen": "", "variantes": [], "agotado": false },
+        { "nombre": "Café de olla", "descripcion": "Con canela y piloncillo.", "precio": 22, "icono": "☕", "imagen": "", "variantes": [], "agotado": false }
+      ]
+    },
+    {
+      "nombre": "Postres",
+      "productos": [
+        { "nombre": "Tortitas de Santa Clara", "descripcion": "Pieza. Galleta con dulce de pepita.", "precio": 15, "icono": "🍪", "imagen": "", "variantes": [], "agotado": false },
+        { "nombre": "Camote poblano", "descripcion": "Pieza. Sabores surtidos.", "precio": 20, "icono": "🍬", "imagen": "", "variantes": [], "agotado": false }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- 1. CONFIGURACIÓN BÁSICA
+       Esta página es el PANEL: aquí se captura el menú de un negocio, se ve cómo queda
+       y se descarga su archivo (ej. mi-negocio.json) para publicarlo en negocios/. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de pedidos | Santiago Cortes</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:,">
+
+  <!-- 2. ESTILOS -->
+  <style>
+    /* Colores de tu marca */
+    :root {
+      --azul: #142848;
+      --azul-2: #223e68;
+      --dorado: #c9a227;
+      --crema: #f6f3ec;
+      --crema-2: #ebe5d8;
+      --texto: #1c2434;
+      --gris: #5d6675;
+      --blanco: #ffffff;
+      --borde: #d5cdbc;
+      --error: #b42318;
+      --ok: #1a7f4b;
+      --foco: #1d4ed8;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color: var(--texto);
+           background: var(--crema); line-height: 1.5; }
+    h1, h2, h3, p, ul, ol, fieldset { margin: 0; padding: 0; }
+    h1, h2 { font-family: Georgia, "Times New Roman", serif; color: var(--azul); }
+    fieldset { border: 0; min-width: 0; }
+    button, input, textarea { font: inherit; color: inherit; }
+    button { cursor: pointer; }
+    button:disabled { cursor: default; opacity: .4; }
+    :focus-visible { outline: 3px solid var(--foco); outline-offset: 2px; }
+
+    /* Barra superior */
+    .tope { background: var(--azul); color: var(--blanco); }
+    .tope-fila { max-width: 1180px; margin: 0 auto; padding: 12px 20px; display: flex; flex-wrap: wrap; align-items: center;
+                 justify-content: space-between; gap: 10px 16px; }
+    .marca { display: flex; align-items: center; gap: 10px; color: var(--blanco); text-decoration: none; font-weight: 600; }
+    .monograma { width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--dorado); color: var(--dorado);
+                 display: flex; align-items: center; justify-content: center; font-family: Georgia, serif; font-weight: 700; font-size: 15px; }
+    .tope-acciones { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn { min-height: 44px; padding: 0 18px; border-radius: 999px; font-weight: 600; font-size: 15px; border: 2px solid transparent; }
+    .btn-dorado { background: var(--dorado); color: var(--azul); }
+    .btn-claro { background: transparent; border-color: #c8d2e2; color: var(--blanco); }
+    .btn-borde { background: var(--blanco); border-color: var(--borde); color: var(--azul); }
+    .btn-azul { background: var(--azul); color: var(--blanco); }
+
+    /* Selector Editar / Vista previa (solo en celular) */
+    .vistas { display: none; position: sticky; top: 0; z-index: 5; background: var(--crema-2); padding: 8px 16px; gap: 8px;
+              border-bottom: 1px solid var(--borde); }
+    .vistas button { flex: 1; min-height: 44px; border-radius: 999px; border: 1px solid var(--borde); background: var(--blanco); font-weight: 600; }
+    .vistas button[aria-pressed="true"] { background: var(--azul); border-color: var(--azul); color: var(--blanco); }
+
+    /* Dos columnas: formulario y vista previa */
+    .panel { max-width: 1180px; margin: 0 auto; padding: 24px 20px 64px; display: grid;
+             grid-template-columns: minmax(0, 1fr) 400px; gap: 28px; align-items: start; }
+    .formulario { display: grid; gap: 16px; min-width: 0; }
+    .intro h1 { font-size: clamp(26px, 4vw, 34px); line-height: 1.15; margin-bottom: 6px; }
+    .intro p { color: var(--gris); max-width: 620px; }
+    .guardado { font-size: 13px; color: var(--gris); margin-top: 8px; min-height: 20px; }
+    .previa { position: sticky; top: 20px; height: calc(100vh - 40px); max-height: 800px; display: flex; flex-direction: column; gap: 8px; }
+    .previa p { font-size: 13px; color: var(--gris); text-align: center; }
+    .previa iframe { flex: 1; width: 100%; border: 10px solid var(--azul); border-radius: 30px; background: var(--blanco); }
+
+    /* Secciones plegables */
+    .seccion { background: var(--blanco); border-radius: 16px; box-shadow: 0 4px 18px rgba(20, 40, 72, .07); }
+    .seccion > summary { list-style: none; cursor: pointer; padding: 18px 20px; display: flex; align-items: center;
+                         justify-content: space-between; gap: 12px; border-radius: 16px; }
+    .seccion > summary::-webkit-details-marker { display: none; }
+    .seccion > summary::after { content: "+"; font-size: 22px; color: var(--gris); line-height: 1; }
+    .seccion[open] > summary::after { content: "−"; }
+    .seccion h2 { font-size: 21px; }
+    .cuerpo { padding: 0 20px 22px; display: grid; gap: 16px; }
+    .rejilla { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+
+    /* Campos */
+    .campo { display: block; min-width: 0; }
+    .campo > span:first-child, legend { display: block; font-weight: 600; font-size: 14px; margin-bottom: 5px; padding: 0; }
+    .campo input, .campo textarea { width: 100%; min-height: 44px; border: 1px solid #a9a290; border-radius: 10px;
+                                    background: var(--blanco); padding: 9px 12px; font-size: 16px; }
+    .campo input[type="color"] { padding: 4px; height: 44px; cursor: pointer; }
+    .campo textarea { resize: vertical; }
+    .campo small, .ayuda { display: block; color: var(--gris); font-size: 13px; margin-top: 4px; }
+    .casilla { display: flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer; }
+    .casilla input { width: 20px; height: 20px; accent-color: var(--azul); flex: none; }
+    .casillas { display: flex; flex-wrap: wrap; gap: 0 22px; }
+
+    /* Horario */
+    .dia { display: grid; grid-template-columns: minmax(100px, 1fr) minmax(0, 118px) minmax(0, 118px); gap: 10px; align-items: center; }
+    .dia input[type="time"] { width: 100%; min-height: 44px; border: 1px solid #a9a290; border-radius: 10px; padding: 6px 8px;
+                              font-size: 16px; background: var(--blanco); }
+    .dia input[type="time"]:disabled { background: var(--crema); color: var(--gris); }
+
+    /* Menú */
+    .cat { border: 1px solid var(--borde); border-radius: 14px; padding: 16px; display: grid; gap: 12px; background: var(--crema); }
+    .cat-cab { display: grid; gap: 8px; }
+    .orden { display: flex; flex-wrap: wrap; gap: 6px; }
+    .mini-btn { min-height: 40px; padding: 0 12px; border-radius: 8px; border: 1px solid var(--borde); background: var(--blanco);
+                font-size: 14px; font-weight: 600; }
+    .mini-btn[data-accion="eliminar"] { color: var(--error); }
+    .prod { background: var(--blanco); border: 1px solid var(--borde); border-radius: 12px; }
+    .prod > summary { cursor: pointer; padding: 12px 14px; font-weight: 600; min-height: 44px; overflow-wrap: anywhere; }
+    .prod-cuerpo { padding: 4px 14px 16px; display: grid; gap: 14px; }
+
+    /* Publicar */
+    .pendientes { border-radius: 12px; padding: 12px 16px; background: #fdf3f1; border: 1px solid #f0c9c3; }
+    .pendientes.listo { background: #eef7f1; border-color: #c2e0cf; }
+    .pendientes h3 { font-size: 15px; margin-bottom: 4px; }
+    .pendientes ul { padding-left: 20px; font-size: 14px; }
+    .enlace-fila { display: flex; gap: 10px; flex-wrap: wrap; }
+    .enlace-fila input { flex: 1; min-width: 200px; }
+    .qr { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+    .qr canvas { width: 150px; height: 150px; border: 1px solid var(--borde); border-radius: 8px; }
+    .pasos { padding-left: 20px; display: grid; gap: 4px; font-size: 15px; }
+    .pasos code { background: var(--crema-2); padding: 1px 6px; border-radius: 6px; font-size: 14px; overflow-wrap: anywhere; }
+    .estado { font-size: 14px; font-weight: 600; color: var(--ok); min-height: 20px; }
+    .estado.es-error { color: var(--error); }
+    .otras { display: flex; flex-wrap: wrap; gap: 10px; }
+
+    /* 3. AJUSTES PARA CELULAR */
+    @media (max-width: 900px) {
+      .vistas { display: flex; }
+      .panel { grid-template-columns: minmax(0, 1fr); padding: 18px 16px 48px; }
+      .panel[data-vista="editar"] .previa, .panel[data-vista="previa"] .formulario { display: none; }
+      .previa { position: static; height: calc(100vh - 150px); height: calc(100dvh - 150px); max-height: none; }
+      .tope-fila { padding: 12px 16px; }
+      .tope-acciones { width: 100%; }
+      .tope-acciones .btn { flex: 1; padding: 0 10px; }
+    }
+    @media (max-width: 480px) {
+      .dia { grid-template-columns: 1fr 1fr; }
+      .dia .casilla { grid-column: 1 / -1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA SUPERIOR -->
+  <header class="tope">
+    <div class="tope-fila">
+      <a class="marca" href="../"><span class="monograma">SC</span> Panel de pedidos</a>
+      <div class="tope-acciones">
+        <button class="btn btn-claro" id="abrir" type="button">Abrir archivo</button>
+        <button class="btn btn-dorado" id="descargar" type="button">Descargar archivo</button>
+        <input id="archivo" type="file" accept=".json,application/json" hidden>
+      </div>
+    </div>
+  </header>
+
+  <div class="vistas" id="vistas">
+    <button type="button" data-vista="editar" aria-pressed="true">Editar</button>
+    <button type="button" data-vista="previa" aria-pressed="false">Vista previa</button>
+  </div>
+
+  <main class="panel" id="panel" data-vista="editar">
+    <div class="formulario">
+
+      <div class="intro">
+        <h1>Arma el menú de un negocio</h1>
+        <p>Captura los datos, revisa la vista previa y descarga el archivo. Al subirlo a la carpeta <strong>negocios</strong>, la tienda queda publicada con su propio enlace.</p>
+        <p class="guardado" id="guardado" role="status"></p>
+      </div>
+
+      <!-- DATOS DEL NEGOCIO -->
+      <details class="seccion" open>
+        <summary><h2>1. Datos del negocio</h2></summary>
+        <div class="cuerpo">
+          <div class="rejilla">
+            <label class="campo"><span>Nombre del negocio</span>
+              <input id="f-nombre" type="text" maxlength="60" autocomplete="off"></label>
+            <label class="campo"><span>WhatsApp que recibe los pedidos</span>
+              <input id="f-whatsapp" type="tel" inputmode="numeric" maxlength="20" autocomplete="off">
+              <small>10 dígitos. La clave 52 de México se agrega sola.</small></label>
+          </div>
+          <label class="campo"><span>Frase corta (opcional)</span>
+            <input id="f-lema" type="text" maxlength="120" autocomplete="off"></label>
+          <div class="rejilla">
+            <label class="campo"><span>Logo (opcional)</span>
+              <input id="f-logo" type="text" maxlength="300" autocomplete="off">
+              <small>Un emoji (ej. 🌮) o el enlace de una imagen.</small></label>
+            <label class="campo"><span>Color del negocio</span>
+              <input id="f-color" type="color"></label>
+          </div>
+          <label class="campo"><span>Dirección (opcional)</span>
+            <input id="f-direccion" type="text" maxlength="160" autocomplete="off">
+            <small>Se muestra con enlace a Google Maps.</small></label>
+          <label class="campo"><span>Aviso o promoción (opcional)</span>
+            <input id="f-aviso" type="text" maxlength="160" autocomplete="off">
+            <small>Ej. «Martes 2×1 en tacos». Aparece arriba del menú.</small></label>
+        </div>
+      </details>
+
+      <!-- HORARIO -->
+      <details class="seccion">
+        <summary><h2>2. Horario</h2></summary>
+        <div class="cuerpo">
+          <p class="ayuda">Marca los días que abre. Si cierra después de medianoche, escribe la hora tal cual (ej. 18:00 a 02:00).</p>
+          <div id="dias" style="display:grid; gap:8px;"></div>
+        </div>
+      </details>
+
+      <!-- ENTREGA Y PAGOS -->
+      <details class="seccion">
+        <summary><h2>3. Entrega y pagos</h2></summary>
+        <div class="cuerpo">
+          <fieldset>
+            <legend>Formas de entrega</legend>
+            <div class="casillas">
+              <label class="casilla"><input id="f-recoger" type="checkbox"><span>Recoger en el local</span></label>
+              <label class="casilla"><input id="f-domicilio" type="checkbox"><span>Envío a domicilio</span></label>
+            </div>
+          </fieldset>
+          <div class="rejilla" id="campos-envio">
+            <label class="campo"><span>Costo de envío ($)</span>
+              <input id="f-costo" type="number" min="0" step="any" inputmode="decimal">
+              <small>Escribe 0 si el envío es gratis.</small></label>
+            <label class="campo"><span>Pedido mínimo a domicilio ($)</span>
+              <input id="f-minimo" type="number" min="0" step="any" inputmode="decimal">
+              <small>0 = sin mínimo.</small></label>
+            <label class="campo"><span>Envío gratis desde ($)</span>
+              <input id="f-gratis" type="number" min="0" step="any" inputmode="decimal">
+              <small>0 = no aplica.</small></label>
+          </div>
+          <fieldset>
+            <legend>Formas de pago</legend>
+            <div class="casillas" id="pagos"></div>
+          </fieldset>
+          <label class="campo"><span>Datos para transferencia (opcional)</span>
+            <textarea id="f-transferencia" rows="2" maxlength="300"></textarea>
+            <small>Banco, CLABE y titular. El cliente los ve al elegir Transferencia.</small></label>
+        </div>
+      </details>
+
+      <!-- MENÚ -->
+      <details class="seccion" open>
+        <summary><h2>4. Menú</h2></summary>
+        <div class="cuerpo" id="menu"></div>
+      </details>
+
+      <!-- PUBLICAR -->
+      <details class="seccion" id="seccion-publicar" open>
+        <summary><h2>5. Publicar</h2></summary>
+        <div class="cuerpo">
+          <div class="pendientes" id="pendientes" tabindex="-1">
+            <h3 id="pendientes-titulo"></h3>
+            <ul id="pendientes-lista"></ul>
+          </div>
+
+          <label class="campo"><span>Identificador del negocio</span>
+            <input id="f-id" type="text" maxlength="40" autocomplete="off" spellcheck="false">
+            <small>Es el nombre del archivo y la parte final del enlace. Solo minúsculas, números y guiones.</small></label>
+
+          <div id="bloque-enlace">
+            <label class="campo"><span>Enlace de la tienda</span>
+              <span class="enlace-fila">
+                <input id="enlace" type="text" readonly>
+                <button class="btn btn-borde" id="copiar" type="button">Copiar enlace</button>
+              </span>
+              <small>Funciona cuando el archivo ya está en la carpeta <strong>negocios</strong>.</small></label>
+            <div class="qr" id="bloque-qr" style="margin-top:14px;">
+              <canvas id="qr" width="150" height="150" role="img" aria-label="Código QR del enlace de la tienda"></canvas>
+              <div>
+                <p class="ayuda" style="margin-bottom:8px;">Imprímelo para mesas, mostrador o volantes.</p>
+                <button class="btn btn-borde" id="descargar-qr" type="button">Descargar código QR</button>
+              </div>
+            </div>
+          </div>
+
+          <label class="casilla"><input id="f-marca" type="checkbox">
+            <span>Mostrar «Menú digital hecho por Santiago Cortes» al pie de la tienda</span></label>
+
+          <div>
+            <button class="btn btn-azul" id="descargar-2" type="button">Descargar archivo</button>
+            <p class="estado" id="estado" role="status"></p>
+          </div>
+
+          <div>
+            <h3 style="font-size:16px; margin-bottom:6px;">Cómo publicar</h3>
+            <ol class="pasos">
+              <li>Descarga el archivo. Se llamará <code id="nombre-archivo">negocio.json</code>.</li>
+              <li>Súbelo a la carpeta <code>pedidos/negocios/</code> de tu sitio.</li>
+              <li>Comparte el enlace o el código QR con el negocio.</li>
+              <li>Para cambiar precios o productos, abre aquí el archivo, edítalo y súbelo de nuevo.</li>
+            </ol>
+          </div>
+        </div>
+      </details>
+
+      <div class="otras">
+        <button class="btn btn-borde" id="cargar-ejemplo" type="button">Cargar el ejemplo</button>
+        <button class="btn btn-borde" id="empezar" type="button">Empezar de cero</button>
+      </div>
+    </div>
+
+    <!-- VISTA PREVIA -->
+    <aside class="previa" aria-label="Vista previa">
+      <p>Así lo verá el cliente. Puedes probar un pedido.</p>
+      <iframe id="marco" title="Vista previa de la tienda" src="index.html?vista=previa"></iframe>
+    </aside>
+  </main>
+
+  <!-- 4. FUNCIONAMIENTO -->
+  <script src="lib/qrcode.js"></script>
+  <script src="comun.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    const P = window.Pedidos;
+    const el = P.el;
+    const $ = (selector) => document.querySelector(selector);
+    const CLAVE_BORRADOR = 'pedidos:borrador';
+
+    let datos = null;        // el negocio que se está editando
+    let idManual = false;    // true cuando el identificador se escribió a mano
+    const abiertos = new WeakSet();   // productos desplegados en el editor
+    const nodos = new WeakMap();      // producto o categoría -> su elemento en pantalla
+    const marco = $('#marco');
+    const destino = location.origin === 'null' ? '*' : location.origin;
+
+    /* ---------- Campos fijos: [selector, leer, escribir] ---------- */
+    const CAMPOS = [
+      ['#f-nombre', (d) => d.nombre, (d, v) => { d.nombre = v; }],
+      ['#f-whatsapp', (d) => d.whatsapp, (d, v) => { d.whatsapp = v; }],
+      ['#f-lema', (d) => d.lema, (d, v) => { d.lema = v; }],
+      ['#f-logo', (d) => d.logo, (d, v) => { d.logo = v; }],
+      ['#f-color', (d) => d.color, (d, v) => { d.color = v; }],
+      ['#f-direccion', (d) => d.direccion, (d, v) => { d.direccion = v; }],
+      ['#f-aviso', (d) => d.aviso, (d, v) => { d.aviso = v; }],
+      ['#f-recoger', (d) => d.entrega.recoger, (d, v) => { d.entrega.recoger = v; }],
+      ['#f-domicilio', (d) => d.entrega.domicilio, (d, v) => { d.entrega.domicilio = v; }],
+      ['#f-costo', (d) => d.entrega.costoEnvio, (d, v) => { d.entrega.costoEnvio = v; }],
+      ['#f-minimo', (d) => d.entrega.pedidoMinimo, (d, v) => { d.entrega.pedidoMinimo = v; }],
+      ['#f-gratis', (d) => d.entrega.envioGratisDesde, (d, v) => { d.entrega.envioGratisDesde = v; }],
+      ['#f-transferencia', (d) => d.datosTransferencia, (d, v) => { d.datosTransferencia = v; }],
+      ['#f-marca', (d) => d.mostrarMarca, (d, v) => { d.mostrarMarca = v; }]
+    ];
+
+    function valorDe(input) {
+      if (input.type === 'checkbox') return input.checked;
+      if (input.type === 'number') return Number(input.value) || 0;
+      return input.value;
+    }
+
+    function ponerValor(input, valor) {
+      if (input.type === 'checkbox') input.checked = Boolean(valor);
+      else input.value = valor == null ? '' : valor;
+    }
+
+    for (const [selector, , escribir] of CAMPOS) {
+      const input = $(selector);
+      input.addEventListener('input', () => { escribir(datos, valorDe(input)); cambio(); });
+    }
+
+    $('#f-id').addEventListener('input', () => {
+      const limpio = P.sinAcentos($('#f-id').value).replace(/[^a-z0-9-]/g, '');
+      $('#f-id').value = limpio;
+      datos.id = limpio;
+      idManual = limpio !== '';
+      cambio();
+    });
+
+    /* ---------- Piezas reutilizables ---------- */
+    function campo(etiqueta, opciones) {
+      const input = opciones.filas ? el('textarea', { rows: opciones.filas }) : el('input', { type: opciones.tipo || 'text' });
+      for (const [atributo, valor] of Object.entries(opciones.atributos || {})) input.setAttribute(atributo, valor);
+      input.value = opciones.valor == null ? '' : opciones.valor;
+      input.addEventListener('input', () => { opciones.alEscribir(valorDe(input)); cambio(); });
+      return el('label', { class: 'campo' }, el('span', { text: etiqueta }), input,
+        opciones.ayuda && el('small', { text: opciones.ayuda }));
+    }
+
+    function casilla(etiqueta, marcada, alCambiar) {
+      const input = el('input', { type: 'checkbox' });
+      input.checked = marcada;
+      input.addEventListener('change', () => { alCambiar(input.checked); cambio(); });
+      return el('label', { class: 'casilla' }, input, el('span', { text: etiqueta }));
+    }
+
+    /* ---------- Horario ---------- */
+    function pintarHorario() {
+      const orden = [1, 2, 3, 4, 5, 6, 0];
+      $('#dias').replaceChildren(...orden.map((d) => {
+        const nombre = P.DIAS[d];
+        const abre = el('input', { type: 'time', 'aria-label': nombre + ': hora de apertura' });
+        const cierra = el('input', { type: 'time', 'aria-label': nombre + ': hora de cierre' });
+        const activo = el('input', { type: 'checkbox' });
+        const leer = () => {
+          const dia = datos.horario[d];
+          activo.checked = Boolean(dia);
+          abre.value = dia ? dia[0] : '09:00';
+          cierra.value = dia ? dia[1] : '18:00';
+          abre.disabled = cierra.disabled = !dia;
+        };
+        const escribir = () => {
+          datos.horario[d] = activo.checked ? [abre.value || '09:00', cierra.value || '18:00'] : null;
+          abre.disabled = cierra.disabled = !activo.checked;
+          cambio();
+        };
+        for (const input of [activo, abre, cierra]) input.addEventListener('input', escribir);
+        leer();
+        return el('div', { class: 'dia' }, el('label', { class: 'casilla' }, activo, el('span', { text: nombre })), abre, cierra);
+      }));
+    }
+
+    function pintarPagos() {
+      $('#pagos').replaceChildren(...P.PAGOS.map((pago) =>
+        casilla(pago, datos.pagos.includes(pago), (marcada) => {
+          datos.pagos = datos.pagos.filter((p) => p !== pago);
+          if (marcada) datos.pagos.push(pago);
+        })));
+    }
+
+    /* ---------- Menú ---------- */
+    function mover(lista, i, paso) {
+      const j = i + paso;
+      if (j < 0 || j >= lista.length) return;
+      [lista[i], lista[j]] = [lista[j], lista[i]];
+    }
+
+    // Vuelve a dibujar el menú y regresa el foco al mismo botón del elemento que se movió
+    function repintar(referencia, accion) {
+      pintarMenu();
+      cambio();
+      const nodo = nodos.get(referencia);
+      if (!nodo) return;
+      const boton = nodo.querySelector('[data-accion="' + accion + '"]:not(:disabled)') || nodo.querySelector('[data-accion]:not(:disabled)');
+      if (boton) boton.focus();
+    }
+
+    function botonesOrden(lista, i, nombre, referencia, alEliminar) {
+      const boton = (texto, accion, deshabilitado, alPulsar) => el('button', {
+        type: 'button', class: 'mini-btn', 'data-accion': accion, disabled: deshabilitado, text: texto, onclick: alPulsar
+      });
+      const grupo = el('div', { class: 'orden' },
+        boton('Subir', 'subir', i === 0, () => { mover(lista, i, -1); repintar(referencia, 'subir'); }),
+        boton('Bajar', 'bajar', i === lista.length - 1, () => { mover(lista, i, 1); repintar(referencia, 'bajar'); }),
+        boton('Eliminar', 'eliminar', false, alEliminar));
+      // Los lectores de pantalla anuncian "Subir Refresco"; se actualiza si cambia el nombre
+      grupo._nombrar = (nuevo) => {
+        for (const b of grupo.children) b.setAttribute('aria-label', b.textContent + ' ' + nuevo);
+      };
+      grupo._nombrar(nombre);
+      return grupo;
+    }
+
+    function textoVariantes(producto) {
+      return producto.variantes.map((v) => v.nombre + '=' + v.precio).join(', ');
+    }
+
+    // "Chica=20, Grande=30" -> [{ nombre: 'Chica', precio: 20 }, { nombre: 'Grande', precio: 30 }]
+    function leerVariantes(texto) {
+      return texto.split(/[,;\n]+/).map((parte) => {
+        const m = parte.match(/^\s*(.+?)\s*[=:]\s*\$?\s*(\d+(?:\.\d+)?)\s*$/);
+        return m ? { nombre: m[1], precio: Number(m[2]) } : null;
+      }).filter(Boolean);
+    }
+
+    function editorProducto(categoria, producto, i) {
+      const titulo = el('summary');
+      const orden = botonesOrden(categoria.productos, i, '', producto, () => {
+        if (!confirm('¿Eliminar «' + (producto.nombre.trim() || 'Producto sin nombre') + '» del menú?')) return;
+        categoria.productos.splice(i, 1);
+        pintarMenu();
+        cambio();
+        nodos.get(categoria).querySelector('[data-agregar]').focus();
+      });
+      const pintarTitulo = () => {
+        orden._nombrar(producto.nombre.trim() || 'producto sin nombre');
+        const precio = producto.variantes.length
+          ? producto.variantes.length + (producto.variantes.length === 1 ? ' opción' : ' opciones')
+          : P.dinero(Number(producto.precio) || 0);
+        titulo.textContent = (producto.nombre.trim() || 'Producto sin nombre') + ' · ' + precio + (producto.agotado ? ' · Agotado' : '');
+      };
+      pintarTitulo();
+
+      const detalle = el('details', { class: 'prod' }, titulo,
+        el('div', { class: 'prod-cuerpo' },
+          el('div', { class: 'rejilla' },
+            campo('Nombre del producto', { valor: producto.nombre, atributos: { maxlength: 80 },
+              alEscribir: (v) => { producto.nombre = v; pintarTitulo(); } }),
+            campo('Precio ($)', { tipo: 'number', valor: producto.precio, atributos: { min: 0, step: 'any', inputmode: 'decimal' },
+              alEscribir: (v) => { producto.precio = v; pintarTitulo(); } })),
+          campo('Descripción (opcional)', { valor: producto.descripcion, atributos: { maxlength: 200 },
+            alEscribir: (v) => { producto.descripcion = v; } }),
+          campo('Opciones con precio (opcional)', { valor: textoVariantes(producto),
+            atributos: { placeholder: 'Chica=20, Grande=30' },
+            ayuda: 'Para tamaños o sabores. Si las usas, sustituyen al precio de arriba.',
+            alEscribir: (v) => { producto.variantes = leerVariantes(v); pintarTitulo(); } }),
+          el('div', { class: 'rejilla' },
+            campo('Emoji (opcional)', { valor: producto.icono, atributos: { maxlength: 16 },
+              alEscribir: (v) => { producto.icono = v; } }),
+            campo('Foto: enlace de la imagen (opcional)', { valor: producto.imagen, atributos: { maxlength: 300, inputmode: 'url' },
+              alEscribir: (v) => { producto.imagen = v; } })),
+          casilla('Agotado por ahora', producto.agotado, (v) => { producto.agotado = v; pintarTitulo(); }),
+          orden));
+      detalle.open = abiertos.has(producto);
+      detalle.addEventListener('toggle', () => { if (detalle.open) abiertos.add(producto); else abiertos.delete(producto); });
+      nodos.set(producto, detalle);
+      return detalle;
+    }
+
+    function pintarMenu() {
+      const contenedor = $('#menu');
+      contenedor.replaceChildren(...datos.categorias.map((categoria, i) => {
+        const nombrar = () => orden._nombrar('categoría ' + (categoria.nombre.trim() || i + 1));
+        const orden = botonesOrden(datos.categorias, i, '', categoria, () => {
+          const n = categoria.productos.length;
+          const aviso = '¿Eliminar la categoría «' + (categoria.nombre.trim() || 'sin nombre') + '»' +
+            (n ? ' y sus ' + n + (n === 1 ? ' producto' : ' productos') : '') + '?';
+          if (!confirm(aviso)) return;
+          datos.categorias.splice(i, 1);
+          pintarMenu();
+          cambio();
+          $('#agregar-categoria').focus();
+        });
+        nombrar();
+        const seccion = el('section', { class: 'cat' },
+          el('div', { class: 'cat-cab' },
+            campo('Categoría', { valor: categoria.nombre, atributos: { maxlength: 50, placeholder: 'Ej. Bebidas' },
+              alEscribir: (v) => { categoria.nombre = v; nombrar(); } }),
+            orden),
+          categoria.productos.map((producto, j) => editorProducto(categoria, producto, j)),
+          el('button', { type: 'button', class: 'btn btn-borde', 'data-agregar': true, text: 'Agregar producto', onclick: () => {
+            const nuevo = P.productoNuevo();
+            categoria.productos.push(nuevo);
+            abiertos.add(nuevo);
+            pintarMenu();
+            cambio();
+            nodos.get(nuevo).querySelector('input').focus();
+          } }));
+        nodos.set(categoria, seccion);
+        return seccion;
+      }));
+      contenedor.append(el('button', { type: 'button', class: 'btn btn-azul', id: 'agregar-categoria', text: 'Agregar categoría', onclick: () => {
+        const nueva = { nombre: '', productos: [] };
+        datos.categorias.push(nueva);
+        pintarMenu();
+        cambio();
+        nodos.get(nueva).querySelector('input').focus();
+      } }));
+    }
+
+    /* ---------- Publicar ---------- */
+    function pendientes(limpio) {
+      const lista = [];
+      if (!limpio.nombre) lista.push({ texto: 'Escribe el nombre del negocio.', grave: true });
+      if (limpio.whatsapp.length < 11) lista.push({ texto: 'Escribe el WhatsApp del negocio con sus 10 dígitos.', grave: true });
+      const productos = limpio.categorias.flatMap((c) => c.productos);
+      if (!productos.length) lista.push({ texto: 'Agrega al menos un producto con nombre.', grave: true });
+      const sinPrecio = productos.filter((p) => !p.variantes.length && p.precio === 0).length;
+      if (sinPrecio) {
+        lista.push({ grave: false, texto: (sinPrecio === 1 ? 'Un producto tiene' : sinPrecio + ' productos tienen') + ' precio $0. Revisa que sea correcto.' });
+      }
+      return lista;
+    }
+
+    function enlaceTienda(id) {
+      return new URL('./?n=' + id, location.href).href;
+    }
+
+    function dibujarQR(texto) {
+      if (typeof window.qrcode !== 'function') return false;
+      const qr = window.qrcode(0, 'M');
+      qr.addData(texto);
+      qr.make();
+      const modulos = qr.getModuleCount();
+      const celda = 8;
+      const margen = 4;
+      const lienzo = $('#qr');
+      lienzo.width = lienzo.height = (modulos + margen * 2) * celda;
+      const ctx = lienzo.getContext('2d');
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, lienzo.width, lienzo.height);
+      ctx.fillStyle = '#000000';
+      for (let fila = 0; fila < modulos; fila++) {
+        for (let col = 0; col < modulos; col++) {
+          if (qr.isDark(fila, col)) ctx.fillRect((col + margen) * celda, (fila + margen) * celda, celda, celda);
+        }
+      }
+      return true;
+    }
+
+    function pintarPublicar(limpio) {
+      const lista = pendientes(limpio);
+      const graves = lista.some((p) => p.grave);
+      $('#pendientes').classList.toggle('listo', !lista.length);
+      $('#pendientes-titulo').textContent = !lista.length ? 'Todo listo para publicar.'
+        : graves ? 'Antes de descargar, completa esto:' : 'Puedes publicar. Solo revisa esto:';
+      $('#pendientes-lista').replaceChildren(...lista.map((p) => el('li', { text: p.texto })));
+
+      $('#bloque-enlace').hidden = !limpio.id;
+      $('#nombre-archivo').textContent = (limpio.id || 'negocio') + '.json';
+      if (limpio.id) {
+        const enlace = enlaceTienda(limpio.id);
+        $('#enlace').value = enlace;
+        $('#bloque-qr').hidden = !dibujarQR(enlace);
+      }
+      $('#campos-envio').hidden = !datos.entrega.domicilio;
+    }
+
+    function avisar(texto, esError) {
+      $('#estado').textContent = texto;
+      $('#estado').classList.toggle('es-error', Boolean(esError));
+    }
+
+    function descargarArchivo(blob, nombre) {
+      const enlace = el('a', { href: URL.createObjectURL(blob), download: nombre });
+      document.body.append(enlace);
+      enlace.click();
+      enlace.remove();
+      setTimeout(() => URL.revokeObjectURL(enlace.href), 1000);
+    }
+
+    function descargar() {
+      const limpio = P.normalizar(datos);
+      if (pendientes(limpio).some((p) => p.grave)) {
+        verVista('editar');
+        $('#seccion-publicar').open = true;
+        $('#pendientes').focus();
+        $('#pendientes').scrollIntoView({ block: 'center' });
+        avisar('Falta información para poder descargar el archivo.', true);
+        return;
+      }
+      descargarArchivo(new Blob([JSON.stringify(limpio, null, 2) + '\n'], { type: 'application/json' }), limpio.id + '.json');
+      avisar('Se descargó ' + limpio.id + '.json. Súbelo a la carpeta pedidos/negocios/ para publicarlo.');
+    }
+
+    $('#descargar').addEventListener('click', descargar);
+    $('#descargar-2').addEventListener('click', descargar);
+
+    $('#copiar').addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText($('#enlace').value);
+        avisar('Enlace copiado.');
+      } catch (error) {
+        $('#enlace').select();
+        avisar('Selecciona el enlace y cópialo con Ctrl + C.', true);
+      }
+    });
+
+    $('#descargar-qr').addEventListener('click', () => {
+      $('#qr').toBlob((blob) => { if (blob) descargarArchivo(blob, 'qr-' + P.normalizar(datos).id + '.png'); });
+    });
+
+    /* ---------- Guardado y vista previa ---------- */
+    let reloj = 0;
+    function cambio() {
+      $('#guardado').textContent = 'Guardando…';
+      clearTimeout(reloj);
+      reloj = setTimeout(aplicar, 250);
+    }
+
+    function aplicar() {
+      if (!idManual) {
+        datos.id = P.slug(datos.nombre);
+        $('#f-id').value = datos.id;
+      }
+      const limpio = P.normalizar(datos);
+      try {
+        localStorage.setItem(CLAVE_BORRADOR, JSON.stringify(datos));
+        $('#guardado').textContent = 'Borrador guardado en este dispositivo.';
+      } catch (error) {
+        $('#guardado').textContent = 'No se pudo guardar el borrador aquí. Descarga el archivo para no perder cambios.';
+      }
+      pintarPublicar(limpio);
+      enviarPrevia(limpio);
+    }
+
+    function enviarPrevia(limpio) {
+      if (marco.contentWindow) marco.contentWindow.postMessage({ tipo: 'pedidos-config', datos: limpio }, destino);
+    }
+
+    // La vista previa avisa cuando ya cargó; entonces se le mandan los datos
+    window.addEventListener('message', (evento) => {
+      if (evento.source === marco.contentWindow && evento.data && evento.data.tipo === 'pedidos-lista' && datos) {
+        enviarPrevia(P.normalizar(datos));
+      }
+    });
+
+    /* ---------- Cargar un negocio en el panel ---------- */
+    function adoptar(nuevos) {
+      datos = nuevos;
+      if (!datos.horario) datos.horario = P.plantilla().horario;
+      if (!datos.categorias.length) datos.categorias.push({ nombre: '', productos: [P.productoNuevo()] });
+      idManual = Boolean(datos.id) && datos.id !== P.slug(datos.nombre);
+      for (const [selector, leer] of CAMPOS) ponerValor($(selector), leer(datos));
+      $('#f-id').value = datos.id;
+      pintarHorario();
+      pintarPagos();
+      pintarMenu();
+      avisar('');
+      clearTimeout(reloj);
+      aplicar();
+    }
+
+    function hayTrabajo() {
+      return Boolean(datos && (datos.nombre.trim() || datos.categorias.some((c) => c.productos.some((p) => p.nombre.trim()))));
+    }
+
+    function confirmarReemplazo() {
+      return !hayTrabajo() || confirm('Se reemplazará el borrador de «' + (datos.nombre.trim() || 'negocio sin nombre') + '». Si no lo has descargado, se perderá. ¿Continuar?');
+    }
+
+    function cargarEjemplo() {
+      return fetch('negocios/demo.json', { cache: 'no-cache' })
+        .then((respuesta) => { if (!respuesta.ok) throw new Error('sin ejemplo'); return respuesta.json(); })
+        .then((archivo) => {
+          // El ejemplo sirve de plantilla: sin identificador fijo, para no sobrescribir demo.json
+          const ejemplo = P.normalizar(archivo);
+          ejemplo.id = '';
+          adoptar(ejemplo);
+        });
+    }
+
+    $('#cargar-ejemplo').addEventListener('click', () => {
+      if (!confirmarReemplazo()) return;
+      cargarEjemplo().catch(() => avisar('No pudimos cargar el ejemplo. Revisa tu conexión e inténtalo de nuevo.', true));
+    });
+
+    $('#empezar').addEventListener('click', () => {
+      if (!confirmarReemplazo()) return;
+      adoptar(P.plantilla());
+      $('#f-nombre').focus();
+    });
+
+    $('#abrir').addEventListener('click', () => $('#archivo').click());
+    $('#archivo').addEventListener('change', () => {
+      const archivo = $('#archivo').files[0];
+      $('#archivo').value = '';
+      if (!archivo || !confirmarReemplazo()) return;
+      archivo.text()
+        .then((texto) => {
+          const contenido = JSON.parse(texto);
+          if (!contenido || typeof contenido !== 'object' || !Array.isArray(contenido.categorias)) throw new Error('formato');
+          adoptar(P.normalizar(contenido));
+          avisar('Se abrió ' + archivo.name + '.');
+        })
+        .catch(() => {
+          $('#seccion-publicar').open = true;
+          avisar('No pudimos leer ese archivo. Elige un archivo .json descargado desde este panel.', true);
+        });
+    });
+
+    /* ---------- Editar / Vista previa en celular ---------- */
+    function verVista(nombre) {
+      $('#panel').dataset.vista = nombre;
+      document.querySelectorAll('#vistas button').forEach((boton) => {
+        boton.setAttribute('aria-pressed', String(boton.dataset.vista === nombre));
+      });
+    }
+    document.querySelectorAll('#vistas button').forEach((boton) => {
+      boton.addEventListener('click', () => { verVista(boton.dataset.vista); window.scrollTo(0, 0); });
+    });
+
+    /* ---------- Inicio: último borrador o, si no hay, el ejemplo ---------- */
+    let borrador = null;
+    try { borrador = JSON.parse(localStorage.getItem(CLAVE_BORRADOR)); } catch (error) { borrador = null; }
+    if (borrador && typeof borrador === 'object') {
+      adoptar(P.normalizar(borrador));
+    } else {
+      adoptar(P.plantilla());
+      cargarEjemplo().catch(() => { /* sin ejemplo disponible: se queda la plantilla en blanco */ });
+    }
+  })();
+  </script>
+</body>
+</html>
