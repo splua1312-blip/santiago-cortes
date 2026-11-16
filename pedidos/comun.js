@@ -8,7 +8,7 @@
   /* 1. TUS DATOS
      Aparecen al pie de cada tienda ("Quiero uno para mi negocio").
      Cámbialos aquí y se actualizan en todas las tiendas. */
-  const PROVEEDOR = { nombre: 'Santiago Cortes', whatsapp: '522229549368' };
+  const PROVEEDOR = { nombre: 'Santiago Cortes', whatsapp: '522219719914' };
 
   const DIAS = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
   const DIAS_CORTOS = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
